@@ -7,6 +7,7 @@ task({ :sample_data => :environment }) do
 
   require "faker"
   cities = ["Chicago", "New York City", "Austin", "Dallas"]
+  bool = ["yes", "no"]
 
   cities.each do |city|
     city = City.new
@@ -24,8 +25,11 @@ task({ :sample_data => :environment }) do
     studio = Studio.new
     studio.name = Faker::Restaurant.name
     studio.address = "#{Faker::Address.street_address}, #{the_city.name}, #{the_city.state}"
-    
-
+    studio.phone = Faker::PhoneNumber.phone_number
+    studio.shop_minimum = rand(50..300).to_f
+    studio.walk_in = bool.sample
+    studio.city_id = the_city.id
+  end
 
   20.times do
     user = User.new
