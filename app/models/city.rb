@@ -10,4 +10,8 @@
 #
 class City < ApplicationRecord
   has_many :studios, class_name: "Studio", foreign_key: "city_id", dependent: :destroy
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["name", "state"]
+  end
 end

@@ -27,4 +27,12 @@ class Artist < ApplicationRecord
   has_many :specializations, class_name: "Specialization", foreign_key: "artist_id", dependent: :destroy
 
   has_many :styles, through: :specializations, source: :style
+
+  def self.ransackable_attribute(auth_object = nil)
+    ["age", "experience", "gender", "name"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["style", "city"]
+  end
 end
