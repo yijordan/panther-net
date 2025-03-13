@@ -9,4 +9,5 @@
 #  updated_at :datetime         not null
 #
 class City < ApplicationRecord
+  has_many :studios, class_name: "Studio", foreign_key: "city_id", dependent: :destroy
 end

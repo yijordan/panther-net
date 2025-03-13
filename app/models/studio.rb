@@ -14,4 +14,6 @@
 #  city_id       :integer
 #
 class Studio < ApplicationRecord
+  has_many :artists, class_name: "Artist", foreign_key: "studio_id", dependent: :nullify
+  belongs_to :city, required: true, class_name: "City", foreign_key: "city_id"
 end
