@@ -10,6 +10,7 @@ task({ :sample_data => :environment }) do
   require "faker"
   cities = ["Chicago", "New York City", "Austin", "Dallas"]
   bool = ["yes", "no"]
+  genders = ["M", "F", "Trans M", "Trans F", "NB"]
 
   cities.each do |a_city|
     city = City.new
@@ -36,6 +37,12 @@ task({ :sample_data => :environment }) do
     studio.walk_in = bool.sample
     studio.city_id = the_city.id
     studio.save
+
+    rand(2..15).times do
+      s_artist = Artist.new
+      s_artist.studio_id = studio.id
+      s_artist.age = rand(21..50)
+      s_artist.gender = genders.sample
   end
   p "Added #{Studio.count} studios"
 
