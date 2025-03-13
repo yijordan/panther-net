@@ -18,4 +18,13 @@
 #  user_id               :integer
 #
 class Artist < ApplicationRecord
+  validates(:name, presence: true, uniqueness: true)
+  validates(:instagram, presence: true, uniqueness: true)
+  validates(:gender, presence: true)
+
+  belongs_to :artist_account, class_name: "User", foreign_key: "user_id"
+  belongs_to :studio, class_name: "Studio", foreign_key: "studio_id", counter_cache: true
+  has_many :specializations, class_name: "Specialization", foreign_key: "artist_id", dependent: :destroy
+
+  has_many :styles, through: :specializations, source: :style
 end
