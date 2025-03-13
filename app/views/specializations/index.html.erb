@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all specializations
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new specialization
+    </h2>
+
+    <form action="/insert_specialization" method="post">
+      <div>
+        <label for="artist_id_box">
+          Artist
+        </label>
+
+        <input type="text" id="artist_id_box" name="query_artist_id">
+      </div>
+
+      <div>
+        <label for="style_id_box">
+          Style
+        </label>
+
+        <input type="text" id="style_id_box" name="query_style_id">
+      </div>
+
+      <button>
+        Create specialization
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Artist
+        </th>
+
+        <th>
+          Style
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_specializations.each do |a_specialization| %>
+      <tr>
+        <td>
+          <%= a_specialization.id %>
+        </td>
+
+        <td>
+          <%= a_specialization.artist_id %>
+        </td>
+
+        <td>
+          <%= a_specialization.style_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_specialization.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_specialization.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/specializations/<%= a_specialization.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

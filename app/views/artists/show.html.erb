@@ -1,0 +1,221 @@
+<div>
+  <div>
+    <h1>
+      Artist #<%= @the_artist.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/artists">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_artist/<%= @the_artist.id %>">
+          Delete artist
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_artist.name %>
+      </dd>
+
+      <dt>
+        Gender
+      </dt>
+      <dd>
+        <%= @the_artist.gender %>
+      </dd>
+
+      <dt>
+        Age
+      </dt>
+      <dd>
+        <%= @the_artist.age %>
+      </dd>
+
+      <dt>
+        Bio
+      </dt>
+      <dd>
+        <%= @the_artist.bio %>
+      </dd>
+
+      <dt>
+        Experience
+      </dt>
+      <dd>
+        <%= @the_artist.experience %>
+      </dd>
+
+      <dt>
+        Studio
+      </dt>
+      <dd>
+        <%= @the_artist.studio_id %>
+      </dd>
+
+      <dt>
+        Instagram
+      </dt>
+      <dd>
+        <%= @the_artist.instagram %>
+      </dd>
+
+      <dt>
+        Email
+      </dt>
+      <dd>
+        <%= @the_artist.email %>
+      </dd>
+
+      <dt>
+        Contact method
+      </dt>
+      <dd>
+        <%= @the_artist.contact_method %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_artist.user_id %>
+      </dd>
+
+      <dt>
+        Specializations count
+      </dt>
+      <dd>
+        <%= @the_artist.specializations_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_artist.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_artist.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit artist
+    </h2>
+
+    <form action="/modify_artist/<%= @the_artist.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_artist.name %>">
+      </div>
+
+      <div>
+        <label for="gender_box">
+          Gender
+        </label>
+
+        <input type="text" id="gender_box" name="query_gender" value="<%= @the_artist.gender %>">
+      </div>
+
+      <div>
+        <label for="age_box">
+          Age
+        </label>
+
+        <input type="text" id="age_box" name="query_age" value="<%= @the_artist.age %>">
+      </div>
+
+      <div>
+        <label for="bio_box">
+          Bio
+        </label>
+
+        <textarea id="bio_box" name="query_bio"><%= @the_artist.bio %></textarea>
+      </div>
+
+      <div>
+        <label for="experience_box">
+          Experience
+        </label>
+
+        <input type="text" id="experience_box" name="query_experience" value="<%= @the_artist.experience %>">
+      </div>
+
+      <div>
+        <label for="studio_id_box">
+          Studio
+        </label>
+
+        <input type="text" id="studio_id_box" name="query_studio_id" value="<%= @the_artist.studio_id %>">
+      </div>
+
+      <div>
+        <label for="instagram_box">
+          Instagram
+        </label>
+
+        <input type="text" id="instagram_box" name="query_instagram" value="<%= @the_artist.instagram %>">
+      </div>
+
+      <div>
+        <label for="email_box">
+          Email
+        </label>
+
+        <input type="text" id="email_box" name="query_email" value="<%= @the_artist.email %>">
+      </div>
+
+      <div>
+        <label for="contact_method_box">
+          Contact method
+        </label>
+
+        <input type="text" id="contact_method_box" name="query_contact_method" value="<%= @the_artist.contact_method %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_artist.user_id %>">
+      </div>
+
+      <div>
+        <label for="specializations_count_box">
+          Specializations count
+        </label>
+
+        <input type="text" id="specializations_count_box" name="query_specializations_count" value="<%= @the_artist.specializations_count %>">
+      </div>
+
+      <button>
+        Update artist
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

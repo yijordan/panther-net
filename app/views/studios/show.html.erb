@@ -1,0 +1,161 @@
+<div>
+  <div>
+    <h1>
+      Studio #<%= @the_studio.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/studios">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_studio/<%= @the_studio.id %>">
+          Delete studio
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_studio.name %>
+      </dd>
+
+      <dt>
+        City
+      </dt>
+      <dd>
+        <%= @the_studio.city_id %>
+      </dd>
+
+      <dt>
+        Walk in
+      </dt>
+      <dd>
+        <%= @the_studio.walk_in %>
+      </dd>
+
+      <dt>
+        Shop minimum
+      </dt>
+      <dd>
+        <%= @the_studio.shop_minimum %>
+      </dd>
+
+      <dt>
+        Artists count
+      </dt>
+      <dd>
+        <%= @the_studio.artists_count %>
+      </dd>
+
+      <dt>
+        Address
+      </dt>
+      <dd>
+        <%= @the_studio.address %>
+      </dd>
+
+      <dt>
+        Phone
+      </dt>
+      <dd>
+        <%= @the_studio.phone %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_studio.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_studio.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit studio
+    </h2>
+
+    <form action="/modify_studio/<%= @the_studio.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_studio.name %>">
+      </div>
+
+      <div>
+        <label for="city_id_box">
+          City
+        </label>
+
+        <input type="text" id="city_id_box" name="query_city_id" value="<%= @the_studio.city_id %>">
+      </div>
+
+      <div>
+        <label for="walk_in_box">
+          Walk in
+        </label>
+
+        <input type="text" id="walk_in_box" name="query_walk_in" value="<%= @the_studio.walk_in %>">
+      </div>
+
+      <div>
+        <label for="shop_minimum_box">
+          Shop minimum
+        </label>
+
+        <input type="text" id="shop_minimum_box" name="query_shop_minimum" value="<%= @the_studio.shop_minimum %>">
+      </div>
+
+      <div>
+        <label for="artists_count_box">
+          Artists count
+        </label>
+
+        <input type="text" id="artists_count_box" name="query_artists_count" value="<%= @the_studio.artists_count %>">
+      </div>
+
+      <div>
+        <label for="address_box">
+          Address
+        </label>
+
+        <input type="text" id="address_box" name="query_address" value="<%= @the_studio.address %>">
+      </div>
+
+      <div>
+        <label for="phone_box">
+          Phone
+        </label>
+
+        <input type="text" id="phone_box" name="query_phone" value="<%= @the_studio.phone %>">
+      </div>
+
+      <button>
+        Update studio
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,246 @@
+<div>
+  <div>
+    <h1>
+      List of all artists
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new artist
+    </h2>
+
+    <form action="/insert_artist" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="gender_box">
+          Gender
+        </label>
+
+        <input type="text" id="gender_box" name="query_gender">
+      </div>
+
+      <div>
+        <label for="age_box">
+          Age
+        </label>
+
+        <input type="text" id="age_box" name="query_age">
+      </div>
+
+      <div>
+        <label for="bio_box">
+          Bio
+        </label>
+
+        <textarea id="bio_box" name="query_bio" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="experience_box">
+          Experience
+        </label>
+
+        <input type="text" id="experience_box" name="query_experience">
+      </div>
+
+      <div>
+        <label for="studio_id_box">
+          Studio
+        </label>
+
+        <input type="text" id="studio_id_box" name="query_studio_id">
+      </div>
+
+      <div>
+        <label for="instagram_box">
+          Instagram
+        </label>
+
+        <input type="text" id="instagram_box" name="query_instagram">
+      </div>
+
+      <div>
+        <label for="email_box">
+          Email
+        </label>
+
+        <input type="text" id="email_box" name="query_email">
+      </div>
+
+      <div>
+        <label for="contact_method_box">
+          Contact method
+        </label>
+
+        <input type="text" id="contact_method_box" name="query_contact_method">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="specializations_count_box">
+          Specializations count
+        </label>
+
+        <input type="text" id="specializations_count_box" name="query_specializations_count">
+      </div>
+
+      <button>
+        Create artist
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Gender
+        </th>
+
+        <th>
+          Age
+        </th>
+
+        <th>
+          Bio
+        </th>
+
+        <th>
+          Experience
+        </th>
+
+        <th>
+          Studio
+        </th>
+
+        <th>
+          Instagram
+        </th>
+
+        <th>
+          Email
+        </th>
+
+        <th>
+          Contact method
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Specializations count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_artists.each do |an_artist| %>
+      <tr>
+        <td>
+          <%= an_artist.id %>
+        </td>
+
+        <td>
+          <%= an_artist.name %>
+        </td>
+
+        <td>
+          <%= an_artist.gender %>
+        </td>
+
+        <td>
+          <%= an_artist.age %>
+        </td>
+
+        <td>
+          <%= an_artist.bio %>
+        </td>
+
+        <td>
+          <%= an_artist.experience %>
+        </td>
+
+        <td>
+          <%= an_artist.studio_id %>
+        </td>
+
+        <td>
+          <%= an_artist.instagram %>
+        </td>
+
+        <td>
+          <%= an_artist.email %>
+        </td>
+
+        <td>
+          <%= an_artist.contact_method %>
+        </td>
+
+        <td>
+          <%= an_artist.user_id %>
+        </td>
+
+        <td>
+          <%= an_artist.specializations_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_artist.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_artist.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/artists/<%= an_artist.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

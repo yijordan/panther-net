@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Specialization #<%= @the_specialization.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/specializations">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_specialization/<%= @the_specialization.id %>">
+          Delete specialization
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Artist
+      </dt>
+      <dd>
+        <%= @the_specialization.artist_id %>
+      </dd>
+
+      <dt>
+        Style
+      </dt>
+      <dd>
+        <%= @the_specialization.style_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_specialization.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_specialization.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit specialization
+    </h2>
+
+    <form action="/modify_specialization/<%= @the_specialization.id %>"  method="post" >
+      <div>
+        <label for="artist_id_box">
+          Artist
+        </label>
+
+        <input type="text" id="artist_id_box" name="query_artist_id" value="<%= @the_specialization.artist_id %>">
+      </div>
+
+      <div>
+        <label for="style_id_box">
+          Style
+        </label>
+
+        <input type="text" id="style_id_box" name="query_style_id" value="<%= @the_specialization.style_id %>">
+      </div>
+
+      <button>
+        Update specialization
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

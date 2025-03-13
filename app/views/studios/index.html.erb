@@ -1,0 +1,182 @@
+<div>
+  <div>
+    <h1>
+      List of all studios
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new studio
+    </h2>
+
+    <form action="/insert_studio" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="city_id_box">
+          City
+        </label>
+
+        <input type="text" id="city_id_box" name="query_city_id">
+      </div>
+
+      <div>
+        <label for="walk_in_box">
+          Walk in
+        </label>
+
+        <input type="text" id="walk_in_box" name="query_walk_in">
+      </div>
+
+      <div>
+        <label for="shop_minimum_box">
+          Shop minimum
+        </label>
+
+        <input type="text" id="shop_minimum_box" name="query_shop_minimum">
+      </div>
+
+      <div>
+        <label for="artists_count_box">
+          Artists count
+        </label>
+
+        <input type="text" id="artists_count_box" name="query_artists_count">
+      </div>
+
+      <div>
+        <label for="address_box">
+          Address
+        </label>
+
+        <input type="text" id="address_box" name="query_address">
+      </div>
+
+      <div>
+        <label for="phone_box">
+          Phone
+        </label>
+
+        <input type="text" id="phone_box" name="query_phone">
+      </div>
+
+      <button>
+        Create studio
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          City
+        </th>
+
+        <th>
+          Walk in
+        </th>
+
+        <th>
+          Shop minimum
+        </th>
+
+        <th>
+          Artists count
+        </th>
+
+        <th>
+          Address
+        </th>
+
+        <th>
+          Phone
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_studios.each do |a_studio| %>
+      <tr>
+        <td>
+          <%= a_studio.id %>
+        </td>
+
+        <td>
+          <%= a_studio.name %>
+        </td>
+
+        <td>
+          <%= a_studio.city_id %>
+        </td>
+
+        <td>
+          <%= a_studio.walk_in %>
+        </td>
+
+        <td>
+          <%= a_studio.shop_minimum %>
+        </td>
+
+        <td>
+          <%= a_studio.artists_count %>
+        </td>
+
+        <td>
+          <%= a_studio.address %>
+        </td>
+
+        <td>
+          <%= a_studio.phone %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_studio.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_studio.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/studios/<%= a_studio.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
