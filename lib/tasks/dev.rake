@@ -4,6 +4,7 @@ task({ :sample_data => :environment }) do
   if Rails.env.development?
     City.destroy_all
     Studio.destroy_all
+    Artist.destroy_all
     User.destroy_all
   end
 
@@ -43,8 +44,12 @@ task({ :sample_data => :environment }) do
       s_artist.studio_id = studio.id
       s_artist.age = rand(21..50)
       s_artist.gender = genders.sample
+      s_artist.instagram = Faker::App.name
+      s_artist.save
+    end
   end
   p "Added #{Studio.count} studios"
+  p "Added #{Artist.count} artists"
 
   20.times do
     user = User.new
