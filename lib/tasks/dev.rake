@@ -42,10 +42,13 @@ task({ :sample_data => :environment }) do
     rand(2..15).times do
       s_artist = Artist.new
       s_artist.studio_id = studio.id
+      s_artist.name = Faker::Name.name
       s_artist.age = rand(21..50)
       s_artist.gender = genders.sample
-      s_artist.instagram = Faker::App.name
-      s_artist.save
+      s_artist.instagram = Faker::App.unique.name
+      unless s_artist.save
+        p s_artist.errors.full_messages
+      end
     end
   end
   p "Added #{Studio.count} studios"

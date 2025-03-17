@@ -22,7 +22,7 @@ class Artist < ApplicationRecord
   validates(:instagram, presence: true, uniqueness: true)
   validates(:gender, presence: true)
 
-  belongs_to :artist_account, class_name: "User", foreign_key: "user_id"
+  belongs_to :artist_account, class_name: "User", foreign_key: "user_id", counter_cache: true, optional: true
   belongs_to :studio, class_name: "Studio", foreign_key: "studio_id", counter_cache: true
   has_many :specializations, class_name: "Specialization", foreign_key: "artist_id", dependent: :destroy
 
